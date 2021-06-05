@@ -1,0 +1,13 @@
+function substituir() {
+  var ss = SpreadsheetApp.getActiveSheet();
+  for (var i=0; ;i++){
+    var valor = ss.getRange(i+2,4).getValue();
+    if(valor=="") break;
+    var nvalor = valor.split(".",2);
+    Logger.log(valor)
+    if (nvalor[1]== null ) nvalor[1]="0";
+    var nvalor = nvalor[0]+","+nvalor[1];
+    Logger.log(nvalor)
+    ss.getRange(i+2,4).setValue(nvalor);
+  }
+}
